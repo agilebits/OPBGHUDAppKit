@@ -34,6 +34,13 @@
 
 #import "OPBGHUDScrollView.h"
 
+#define USE_NATIVE_ON_10_7 YES
+
+static SInt32 getSystemVersion() {
+    SInt32 version;
+	Gestalt(gestaltSystemVersion, &version);
+    return version;
+}
 
 @implementation OPBGHUDScrollView
 
@@ -47,8 +54,10 @@
 		
 		[self setThemeKey: @"gradientTheme"];
 		
-		[super setVerticalScroller: [[[OPBGHUDScroller alloc] init] autorelease]];
-		[super setHorizontalScroller: [[[OPBGHUDScroller alloc] init] autorelease]];
+        if(getSystemVersion() < 0x1070 || !USE_NATIVE_ON_10_7) {
+            [super setVerticalScroller: [[[OPBGHUDScroller alloc] init] autorelease]];
+            [super setHorizontalScroller: [[[OPBGHUDScroller alloc] init] autorelease]];
+        }
 	}
 	
 	return self;
@@ -62,8 +71,10 @@
 		
 		[self setThemeKey: @"gradientTheme"];
 		
-		[super setVerticalScroller: [[[OPBGHUDScroller alloc] init] autorelease]];
-		[super setHorizontalScroller: [[[OPBGHUDScroller alloc] init] autorelease]];
+        if(getSystemVersion() < 0x1070 || !USE_NATIVE_ON_10_7) {
+            [super setVerticalScroller: [[[OPBGHUDScroller alloc] init] autorelease]];
+            [super setHorizontalScroller: [[[OPBGHUDScroller alloc] init] autorelease]];
+        }
 	}
 	
 	return self;
@@ -82,15 +93,17 @@
 			[self setThemeKey: @"gradientTheme"];
 		}
 		
-		if(![[super verticalScroller] isKindOfClass: [OPBGHUDScroller class]]) {
-			
-			[super setVerticalScroller: [[[OPBGHUDScroller alloc] init] autorelease]];
-		}
-		
-		if(![[super horizontalScroller] isKindOfClass: [OPBGHUDScroller class]]) {
-			
-			[super setHorizontalScroller: [[[OPBGHUDScroller alloc] init] autorelease]];
-		}
+        if(getSystemVersion() < 0x1070 || !USE_NATIVE_ON_10_7) {
+            if(![[super verticalScroller] isKindOfClass: [OPBGHUDScroller class]]) {
+                
+                [super setVerticalScroller: [[[OPBGHUDScroller alloc] init] autorelease]];
+            }
+            
+            if(![[super horizontalScroller] isKindOfClass: [OPBGHUDScroller class]]) {
+                
+                [super setHorizontalScroller: [[[OPBGHUDScroller alloc] init] autorelease]];
+            }
+        }
 	}
 	
 	return self;
