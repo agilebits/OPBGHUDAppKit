@@ -40,7 +40,6 @@
 #import "OPBGHUDPopUpButtonCell.h"
 #import "OPBGHUDTextFieldCell.h"
 #import "OPBGHUDProgressIndicator.h"
-#import "OPBGHUDTokenFieldCell.h"
 #import "OPBGHUDSecureTextFieldCell.h"
 #import "OPBGHUDOutlineView.h"
 #import "OPBGHUDTableView.h"
