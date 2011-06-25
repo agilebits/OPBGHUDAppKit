@@ -49,7 +49,6 @@
 #import "OPBGHUDSegmentedCell.h"
 #import "OPBGHUDColorWell.h"
 #import "OPBGHUDLabel.h"
-#import "OPBGHUDBox.h"
 #import "OPBGHUDView.h"
 #import "OPBGHUDComboBoxCell.h"
 #import "OPBGHUDStepperCell.h"
