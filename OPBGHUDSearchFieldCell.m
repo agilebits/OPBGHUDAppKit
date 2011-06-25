@@ -34,7 +34,7 @@
 
 #import "OPBGHUDSearchFieldCell.h"
 
-NSImage *searchButtonImage() {
+static NSImage *searchButtonImage(void) {
 	
     static NSImage *__image = nil;
     if(!__image) {
@@ -54,7 +54,7 @@ NSImage *searchButtonImage() {
     return __image;
 }
 
-NSImage *cancelButtonImageUp() {
+static NSImage *cancelButtonImageUp(void) {
 
     static NSImage *__image = nil;
     if(!__image) {
